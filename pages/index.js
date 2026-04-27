@@ -1,44 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-export default function Home() {
+export default function SecoskyClarkWebsite() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const portfolioImages = [
-    { title: "Maternity", src: "/maternity1.jpg" },
-    { title: "Family", src: "/family1.jpg" },
-    { title: "Wildlife", src: "/wildlife1.jpg" },
-    { title: "Landscape", src: "/landscape1.jpg" },
+  const images = [
+    "/landscape1.jpg",
+    "/landscape2.jpg",
+    "/landscape3.jpg",
+    "/landscape4.jpg",
+    "/landscape5.jpg",
+    "/landscape6.jpg"
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen">
-
-      {/* NAV */}
-      <header className="fixed w-full flex justify-between px-8 py-6 bg-black/60">
-        <h1>SecoskyClark</h1>
-        <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+    <div className="bg-black text-white min-h-screen font-sans">
+      <header className="fixed w-full flex justify-between items-center px-8 py-6 bg-black/60 backdrop-blur-md z-50">
+        <h1 className="text-xl tracking-widest">SecoskyClark</h1>
       </header>
 
-      {/* HERO */}
-      <section className="h-screen flex items-center justify-center text-center">
+      <section className="h-screen flex items-center justify-center text-center px-6">
         <div>
-          <h2 className="text-4xl">
+          <h2 className="text-5xl font-light">
             Capturing real moments.
             <br /> Creating timeless memories.
           </h2>
         </div>
       </section>
 
-      {/* PORTFOLIO */}
-      <section className="p-10">
-        <h3>Portfolio</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {portfolioImages.map((img, i) => (
-            <img key={i} src={img.src} alt="" />
-          ))}
-        </div>
+      <section className="grid md:grid-cols-3 gap-4 px-8 pb-20">
+        {images.map((src, i) => (
+          <img key={i} src={src} className="w-full h-[300px] object-cover" />
+        ))}
       </section>
-
     </div>
   );
 }
